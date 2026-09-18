@@ -1,0 +1,7 @@
+# n8n credentials should NEVER be committed
+*.credentials.json
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
