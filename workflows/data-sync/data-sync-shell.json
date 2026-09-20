@@ -1,0 +1,101 @@
+{
+  "name": "Data Sync Shell - [Source] to [Destination]",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Data Sync Shell\nReplace each placeholder (NoOp) node below with real nodes as you build this out:\n\n1. Fetch Source Data -> an HTTP Request / Google Sheets / Postgres node, etc.\n2. Transform / Map Fields -> a Set / Code node to reshape data\n3. Write to Destination -> the node for wherever this data is going\n\nThe Schedule Trigger is OFF by default (workflow is inactive) so it's safe to import and edit.",
+        "height": 260,
+        "width": 380
+      },
+      "id": "efe875ac-88a8-432c-9942-b086c6b944d3",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-80, 60]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "8211979c-6a95-46eb-b395-11000c9d9cf7",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-80, 400]
+    },
+    {
+      "parameters": {},
+      "id": "3c9e5aba-afc9-4772-b4c3-1772f05567bf",
+      "name": "1. Fetch Source Data",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [180, 400],
+      "notes": "Replace with the node that pulls data from the source system (API, sheet, database, etc.)"
+    },
+    {
+      "parameters": {},
+      "id": "af6ba8ec-3184-4b06-a450-13cec7e1aa64",
+      "name": "2. Transform / Map Fields",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [440, 400],
+      "notes": "Replace with a Set or Code node that maps source fields to the destination's expected format."
+    },
+    {
+      "parameters": {},
+      "id": "5df236d9-f839-41a8-9298-d6a44bbae3ef",
+      "name": "3. Write to Destination",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [700, 400],
+      "notes": "Replace with the node that writes/updates data in the destination system."
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "1. Fetch Source Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "1. Fetch Source Data": {
+      "main": [
+        [
+          {
+            "node": "2. Transform / Map Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2. Transform / Map Fields": {
+      "main": [
+        [
+          {
+            "node": "3. Write to Destination",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

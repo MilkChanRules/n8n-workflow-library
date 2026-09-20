@@ -30,7 +30,7 @@ docs/
 
 | Workflow | Category | Status |
 |---|---|---|
-| _(add rows as workflows are added)_ | | |
+| [Data Sync Shell](workflows/data-sync/data-sync-shell.json) | data-sync | Shell (placeholders, ready to extend) |
 
 ## Roadmap
 
@@ -41,4 +41,3 @@ docs/
 ## License
 
 MIT
-"# n8n-workflow-library" 
