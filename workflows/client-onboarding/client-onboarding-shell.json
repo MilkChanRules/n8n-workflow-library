@@ -1,0 +1,96 @@
+{
+  "name": "Client Onboarding Shell - New Client Kickoff",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Client Onboarding Shell\nReplace each placeholder (NoOp) node below with real nodes as you build this out:\n\n1. Create Client Record -> a CRM / project tool node (HubSpot, Notion, Airtable) creating the client's record\n2. Send Welcome Sequence -> an Email / Gmail node sending a welcome email with kickoff info\n3. Create Onboarding Tasks -> a project management node (Asana, ClickUp, Trello) creating a standard onboarding checklist\n\nThe Webhook Trigger is inactive by default so it's safe to import and edit.",
+        "height": 280,
+        "width": 400
+      },
+      "id": "fb3bac84-ee04-4163-af46-a85e26432656",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-80, 60]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "new-client",
+        "options": {}
+      },
+      "id": "e08cb8f9-bea0-413f-a0c8-f5998e57d407",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-80, 420]
+    },
+    {
+      "parameters": {},
+      "id": "484c9b38-727e-47ad-93ba-96fb5de2e3a1",
+      "name": "1. Create Client Record",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [180, 420],
+      "notes": "Replace with a node that creates the client's record in your CRM or project tool (HubSpot, Notion, Airtable, etc.)."
+    },
+    {
+      "parameters": {},
+      "id": "42c0c579-f8c9-40e5-8d91-8f0fb0f47ac4",
+      "name": "2. Send Welcome Sequence",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [440, 420],
+      "notes": "Replace with an Email/Gmail node sending a welcome email with next steps, kickoff call link, and what to expect."
+    },
+    {
+      "parameters": {},
+      "id": "6b80dae3-c2db-4e12-80c5-bb52a5acc3b3",
+      "name": "3. Create Onboarding Tasks",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [700, 420],
+      "notes": "Replace with a project management node (Asana, ClickUp, Trello) that creates a standard onboarding task checklist for the team."
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "1. Create Client Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "1. Create Client Record": {
+      "main": [
+        [
+          {
+            "node": "2. Send Welcome Sequence",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2. Send Welcome Sequence": {
+      "main": [
+        [
+          {
+            "node": "3. Create Onboarding Tasks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

@@ -33,12 +33,13 @@ docs/
 | [Data Sync Shell](workflows/data-sync/data-sync-shell.json) | data-sync | Shell (placeholders, ready to extend) |
 | [Lead Generation Shell](workflows/lead-generation/lead-generation-shell.json) | lead-generation | Shell (placeholders, ready to extend) |
 | [Content Automation Shell](workflows/content-automation/content-automation-shell.json) | content-automation | Shell (placeholders, ready to extend) |
+| [Client Onboarding Shell](workflows/client-onboarding/client-onboarding-shell.json) | client-onboarding | Shell (placeholders, ready to extend) |
 
 ## Roadmap
 
-- [ ] Migrate first existing agency workflow into this structure
-- [ ] Add 2–3 more workflows across different categories
-- [ ] Add a short demo GIF/screenshot per workflow
+- [x] Shell workflow added for each of the four categories (data-sync, lead-generation, content-automation, client-onboarding)
+- [ ] Replace placeholder nodes in at least one shell with a fully working, real-world version
+- [ ] Add a short demo GIF/screenshot per completed workflow
 
 ## License
 
