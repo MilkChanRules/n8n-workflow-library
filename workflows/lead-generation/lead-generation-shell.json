@@ -1,0 +1,96 @@
+{
+  "name": "Lead Generation Shell - Capture, Score, Route",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Lead Generation Shell\nReplace each placeholder (NoOp) node below with real nodes as you build this out:\n\n1. Enrich Lead Data -> a Clearbit / Apollo / HTTP Request node to pull extra info on the lead\n2. Score Lead -> a Set / Code / IF node that scores or qualifies the lead\n3. Route Lead -> a CRM node (HubSpot/Pipedrive), Slack, or Email node to notify sales or create a record\n\nThe Webhook Trigger is inactive by default so it's safe to import and edit.",
+        "height": 260,
+        "width": 380
+      },
+      "id": "154514a8-3e6d-47e6-bfab-1909d63a56e5",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-80, 60]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "new-lead",
+        "options": {}
+      },
+      "id": "173a8e72-e0d2-4876-9e87-5e08cea29c4b",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-80, 400]
+    },
+    {
+      "parameters": {},
+      "id": "9cbcdf56-d907-401a-85d3-423f7208ccdc",
+      "name": "1. Enrich Lead Data",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [180, 400],
+      "notes": "Replace with a node that enriches the incoming lead (company size, role, etc.) via an API like Clearbit or Apollo."
+    },
+    {
+      "parameters": {},
+      "id": "feba2397-50fd-4e5b-aad2-84402c068669",
+      "name": "2. Score Lead",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [440, 400],
+      "notes": "Replace with a Set/Code/IF node that applies scoring rules and decides if the lead qualifies."
+    },
+    {
+      "parameters": {},
+      "id": "6696c138-055d-4f9f-a43b-fdf5d6bbe9cc",
+      "name": "3. Route Lead",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [700, 400],
+      "notes": "Replace with the node that sends the lead onward: CRM record, Slack alert to sales, or a follow-up email."
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "1. Enrich Lead Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "1. Enrich Lead Data": {
+      "main": [
+        [
+          {
+            "node": "2. Score Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2. Score Lead": {
+      "main": [
+        [
+          {
+            "node": "3. Route Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

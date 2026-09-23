@@ -31,6 +31,7 @@ docs/
 | Workflow | Category | Status |
 |---|---|---|
 | [Data Sync Shell](workflows/data-sync/data-sync-shell.json) | data-sync | Shell (placeholders, ready to extend) |
+| [Lead Generation Shell](workflows/lead-generation/lead-generation-shell.json) | lead-generation | Shell (placeholders, ready to extend) |
 
 ## Roadmap
 
