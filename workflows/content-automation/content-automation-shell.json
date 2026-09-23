@@ -1,0 +1,101 @@
+{
+  "name": "Content Automation Shell - Repurpose and Schedule",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Content Automation Shell\nReplace each placeholder (NoOp) node below with real nodes as you build this out:\n\n1. Fetch Source Content -> an RSS Feed / Google Sheets / Notion node pulling from your content calendar or blog\n2. Repurpose Content -> a Code / OpenAI node that reformats the piece into a tweet thread, LinkedIn post, etc.\n3. Schedule & Publish -> a Buffer / social platform node (or a Set node queuing it for manual review)\n\nThe Schedule Trigger is OFF by default (workflow is inactive) so it's safe to import and edit.",
+        "height": 260,
+        "width": 380
+      },
+      "id": "d05a1a50-efba-4465-ad3c-9e21849ee8a7",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [-80, 60]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "daysInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "0a28970a-65f3-4b26-b119-618b2f418647",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-80, 400]
+    },
+    {
+      "parameters": {},
+      "id": "610b3cfe-2aa4-4cd8-8721-0ebf85f82475",
+      "name": "1. Fetch Source Content",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [180, 400],
+      "notes": "Replace with a node that pulls the next piece of content due to be repurposed (blog RSS, content calendar sheet, Notion database, etc.)."
+    },
+    {
+      "parameters": {},
+      "id": "6e2a96e6-7c5c-4839-8684-d564d37dafff",
+      "name": "2. Repurpose Content",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [440, 400],
+      "notes": "Replace with a Code or AI node that reformats the source content into the target format (tweet thread, LinkedIn post, newsletter blurb, etc.)."
+    },
+    {
+      "parameters": {},
+      "id": "a2ed245d-9d29-4ed2-b277-32ae80635b12",
+      "name": "3. Schedule and Publish",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [700, 400],
+      "notes": "Replace with the node that queues or publishes the repurposed content (Buffer, a social platform's API, or a Set node for manual review)."
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "1. Fetch Source Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "1. Fetch Source Content": {
+      "main": [
+        [
+          {
+            "node": "2. Repurpose Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "2. Repurpose Content": {
+      "main": [
+        [
+          {
+            "node": "3. Schedule and Publish",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}
